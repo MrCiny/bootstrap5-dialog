@@ -3,7 +3,7 @@
 /* ================================================
  * Make use of Bootstrap's modal more monkey-friendly.
  *
- * For Bootstrap 5.
+ * For Bootstrap 5.3
  * 
  * Changed the compatibility & syntax to work with Bootstrap 5
  * Please note this project is originally created by [nakupanda](https://github.com/nakupanda).
@@ -139,7 +139,7 @@
     BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_SMALL] = '';
     BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_WIDE] = '';
     BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_LARGE] = 'btn-lg';
-    BootstrapDialog.ICON_SPINNER = 'glyphicon glyphicon-asterisk';
+    BootstrapDialog.ICON_SPINNER = 'bi bi-asterisk';
     BootstrapDialog.BUTTONS_ORDER_CANCEL_OK = 'btns-order-cancel-ok';
     BootstrapDialog.BUTTONS_ORDER_OK_CANCEL = 'btns-order-ok-cancel';
 
@@ -678,34 +678,28 @@
             return BootstrapDialog.NAMESPACE + '-' + name;
         },
         createHeaderContent: function () {
-            var $container = $('<div></div>');
-            $container.addClass(this.getNamespace('header'));
-
             // title
-            $container.append(this.createTitleContent());
+            var $title = this.createTitleContent();
 
             // Close button
-            $container.prepend(this.createCloseButton());
+            var $close = this.createCloseButton();
 
-            return $container;
+            return $($title).add($close);
         },
         createTitleContent: function () {
-            var $title = $('<div></div>');
+            var $title = $('<h5 class="modal-title"></h5>');
             $title.addClass(this.getNamespace('title'));
 
             return $title;
         },
         createCloseButton: function () {
-            var $container = $('<div></div>');
-            $container.addClass(this.getNamespace('close-button'));
-            var $icon = $('<button class="close" aria-label="close"></button>');
-            $icon.append(this.options.closeIcon);
-            $container.append($icon);
-            $container.on('click', {dialog: this}, function (event) {
+            var $closeBtn = $('<button class="btn-close" aria-label="close"></button>');
+            $closeBtn.addClass(this.getNamespace('close-button'));
+            $closeBtn.on('click', {dialog: this}, function (event) {
                 event.data.dialog.close();
             });
 
-            return $container;
+            return $closeBtn;
         },
         createBodyContent: function () {
             var $container = $('<div></div>');
@@ -732,6 +726,7 @@
             var that = this;
             var $container = $('<div></div>');
             $container.addClass(this.getNamespace('footer-buttons'));
+            $container.addClass("d-flex gap-2")
             this.indexedButtons = {};
             $.each(this.options.buttons, function (index, button) {
                 if (!button.id) {
@@ -768,7 +763,7 @@
             if (typeof button.cssClass !== 'undefined' && $.trim(button.cssClass) !== '') {
                 $button.addClass(button.cssClass);
             } else {
-                $button.addClass('btn-default');
+                $button.addClass('btn-outline-secondary');
             }
 
             // Data attributes
