@@ -341,7 +341,7 @@
             return this;
         },
         createModalContent: function () {
-            return $('<div class="modal-content"></div>');
+            return $('<div class="modal-content shadow-lg"></div>');
         },
         getModalContent: function () {
             return this.$modalContent;
@@ -842,14 +842,14 @@
                 var dialog = $this.dialog;
                 var $icon = $this.find('.' + dialog.getNamespace('button-icon'));
                 if (typeof spin === 'undefined') {
-                    spin = !($button.find('.icon-spin').length > 0);
+                    spin = !($button.find('.icon-adjust-hue').length > 0);
                 }
                 if (spin) {
                     $icon.hide();
-                    $button.prepend(dialog.createButtonIcon(dialog.getSpinicon()).addClass('icon-spin'));
+                    $button.prepend(dialog.createButtonIcon(dialog.getSpinicon()).addClass('icon-adjust-hue'));
                 } else {
                     $icon.show();
-                    $button.find('.icon-spin').remove();
+                    $button.find('.icon-adjust-hue').remove();
                 }
 
                 return $this;
