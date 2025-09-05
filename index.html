@@ -698,6 +698,20 @@
         -->
         </div>
 
+        <h3>Vertically center dialog</h3>
+        <p>
+            When option 'verticallyCentered' is set to <strong>true</strong>, your dialog will be centered in the middle of the screen.
+        </p>
+        <div class="source-code runnable">
+            <!--
+        BootstrapDialog.show({
+            title: 'Vertically centered dialog',
+            message: 'This dialog has been vertically centered.',
+            verticallyCentered: true
+        });
+        -->
+        </div>
+
         <h3>Manipulating your dialog</h3>
         <div class="source-code runnable">
             <!--
@@ -952,6 +966,7 @@
             btnCancelLabel: 'Do not drop it!', // <-- Default value is 'Cancel',
             btnOKLabel: 'Drop it!', // <-- Default value is 'OK',
             btnOKClass: 'btn-warning', // <-- If you didn't specify it, dialog type will be used,
+            verticallyCentered: true, // <-- Default value is false
             callback: function(result) {
                 // result will be true if button was click, while it will be false if users close the dialog directly.
                 if(result) {
@@ -1198,6 +1213,15 @@
                         If provided, 'aria-describedby' attribute will be added to the dialog with the description
                         string as its value. This can improve accessibility, as the description can be read by screen
                         readers.
+                    </td>
+                </tr>
+                <tr>
+                    <td>verticallyCentered</td>
+                    <td>
+                        <strong>false (default)</strong> | true
+                    </td>
+                    <td>
+                        When it's true, the modal will be vertically centered in the middle of the screen.
                     </td>
                 </tr>
                 <tr>
