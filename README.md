@@ -14,9 +14,8 @@ The difference between this project and jitangupta/bootstrap5-diaalog is that ji
 
 ================
 
-## Upcoming Change
-- Able to change modal shadow based on bootstrap featured shadow sizes
-- Modal templates
+## Upcoming Changes
+- Vertical alligned modal option
 - New unseen features
 
 ================
