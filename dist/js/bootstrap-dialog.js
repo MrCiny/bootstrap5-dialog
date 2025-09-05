@@ -142,6 +142,11 @@
     BootstrapDialog.ICON_SPINNER = 'bi bi-asterisk';
     BootstrapDialog.BUTTONS_ORDER_CANCEL_OK = 'btns-order-cancel-ok';
     BootstrapDialog.BUTTONS_ORDER_OK_CANCEL = 'btns-order-ok-cancel';
+    BootstrapDialog.SHADOW_NONE = 'shadow-none';
+    BootstrapDialog.SHADOW_SMALL = 'shadow-sm';
+    BootstrapDialog.SHADOW_REGULAR = 'shadow';
+    BootstrapDialog.SHADOW_LARGE = 'shadow-lg';
+
 
     /**
      * Default options.
@@ -158,6 +163,7 @@
         closeByKeyboard: true,
         closeIcon: '&#215;',
         spinicon: BootstrapDialog.ICON_SPINNER,
+        shadow: BootstrapDialog.SHADOW_NONE,
         autodestroy: true,
         draggable: false,
         animate: true,
@@ -341,7 +347,7 @@
             return this;
         },
         createModalContent: function () {
-            return $('<div class="modal-content shadow-lg"></div>');
+            return $('<div class="modal-content"></div>');
         },
         getModalContent: function () {
             return this.$modalContent;
@@ -493,6 +499,28 @@
                         $button.addClass(dialog.getButtonSize());
                     }
                 });
+            }
+
+            return this;
+        },
+        getShadow: function() {
+            return this.options.shadow;
+        },
+        setShadow: function (shadow) {
+            this.options.shadow = shadow;
+            this.updateShadow();
+            return this;
+        },
+        updateShadow: function () {
+            if (this.isRealized()) {
+                var shadowTypes = [
+                    BootstrapDialog.SHADOW_NONE,
+                    BootstrapDialog.SHADOW_SMALL,
+                    BootstrapDialog.SHADOW_REGULAR,
+                    BootstrapDialog.SHADOW_LARGE
+                ];
+
+                this.getModalContent().removeClass(shadowTypes.join(' ')).addClass(this.getShadow());
             }
 
             return this;
@@ -1080,6 +1108,7 @@
             this.updateAnimate();
             this.updateSize();
             this.updateTabindex();
+            this.updateShadow();
 
             return this;
         },

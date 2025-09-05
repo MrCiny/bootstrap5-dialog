@@ -299,21 +299,25 @@
         }
         BootstrapDialog.show({
             title: 'Another long dialog',
-            message: longContent
+            message: longContent,
+            shadow: BootstrapDialog.SHADOW_REGULAR
         });
         BootstrapDialog.show({
             title: 'Another short dialog',
             message: shortContent,
-            draggable: true
+            draggable: true,
+            shadow: BootstrapDialog.SHADOW_REGULAR
         });
         BootstrapDialog.show({
             title: 'A long dialog',
             message: longContent,
-            draggable: true
+            draggable: true,
+            shadow: BootstrapDialog.SHADOW_REGULAR
         });
         BootstrapDialog.show({
             title: 'A short dialog',
-            message: shortContent
+            message: shortContent,
+            shadow: BootstrapDialog.SHADOW_REGULAR
         });
         -->
         </div>
@@ -761,6 +765,42 @@
         -->
         </div>
 
+        <h3>Adding a shadow to your dialog</h3>
+        <p>Is useful if you want to add a shadow to your dialogs :D</p>
+        <div class="source-code runnable">
+           <!--
+        BootstrapDialog.show({
+            title: 'Dialog shadows',
+            message: 'Hi Apple!',
+            buttons: [{
+                label: 'None',
+                action: function(dialog){
+                    dialog.setTitle('None');
+                    dialog.setShadow(BootstrapDialog.SHADOW_NONE);
+                }
+            }, {
+                label: 'Small',
+                action: function(dialog){
+                    dialog.setTitle('Small');
+                    dialog.setShadow(BootstrapDialog.SHADOW_SMALL);
+                }
+            }, {
+                label: 'Regular',
+                action: function(dialog){
+                    dialog.setTitle('Regular');
+                    dialog.setShadow(BootstrapDialog.SHADOW_REGULAR);
+                }
+            }, {
+                label: 'Large',
+                action: function(dialog){
+                    dialog.setTitle('Large');
+                    dialog.setShadow(BootstrapDialog.SHADOW_LARGE);
+                }
+            }]
+        });
+        -->
+        </div>
+
         <h3>Data binding</h3>
         <div class="source-code runnable">
             <!--
@@ -1070,6 +1110,18 @@
                             <li>Clicking outside the dialog.</li>
                             <li>ESC key.</li>
                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>shadow</td>
+                    <td>
+                        <strong>BootstrapDialog.SHADOW or 'shadow-none' (default)</strong> <br />
+                        BootstrapDialog.SHADOW_SMALL or 'shadow-sm' <br />
+                        BootstrapDialog.SHADOW_REGULAR or 'shadow' <br />
+                        BootstrapDialog.SHADOW_LARGE or 'shadow-lg' <br />
+                    </td>
+                    <td>
+                        -
                     </td>
                 </tr>
                 <tr>
