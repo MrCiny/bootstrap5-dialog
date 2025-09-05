@@ -169,7 +169,8 @@
         animate: true,
         description: '',
         tabindex: -1,
-        btnsOrder: BootstrapDialog.BUTTONS_ORDER_CANCEL_OK
+        btnsOrder: BootstrapDialog.BUTTONS_ORDER_CANCEL_OK,
+        verticallyCentered: false,
     };
 
     /**
@@ -550,7 +551,26 @@
 
             return this;
         },
-        getMessage: function () {
+        getVerticallyCentered: function() {
+            var dialogClass = "";
+            if (this.options.verticallyCentered)
+                dialogClass = "modal-dialog-centered"
+
+            return dialogClass;
+        },
+        setVerticallyCentered: function(verticallyCentered) {
+            this.option.verticallyCentered = verticallyCentered;
+            this.updateVerticallyCentered();
+            return this;
+        },
+        updateVerticallyCentered: function () {
+            if (this.isRealized()) {
+                this.getModalDialog().removeClass('modal-dialog-centered').addClass(this.getVerticallyCentered());
+            }
+
+            return this;
+        },
+        getMessage:function () {
             return this.options.message;
         },
         setMessage: function (message) {
@@ -1109,6 +1129,7 @@
             this.updateSize();
             this.updateTabindex();
             this.updateShadow();
+            this.updateVerticallyCentered();
 
             return this;
         },

@@ -10,13 +10,13 @@ See live examples here: <a href="https://mrciny.github.io/bootstrap5-dialog/">ht
 Please note that this project is for <a href="http://getbootstrap.com/"><strong>Bootstrap 5.3.8</strong></a>.
 
 Please note this project is originally created by [nakupanda](https://github.com/nakupanda) and forked from [bootstrap5-dialog](https://github.com/jitangupta/bootstrap5-dialog/).
-The difference between this project and jitangupta/bootstrap5-diaalog is that jitangupta version only supports bootstrap 5.0.2 version while my version supports bootstrap v5.3.8.
+The difference between this project and jitangupta/bootstrap5-diaalog is that jitangupta version only supports bootstrap 5.0.2 version while my version supports bootstrap v5.3.8 and has new features that Bootstrap 5.3.x contains.
 
 ================
 
 ## Upcoming Changes
-- Vertical alligned modal option
-- New unseen features
+- Fullscreen option
+- Scrollable modal
 
 ================
 
