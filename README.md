@@ -15,8 +15,8 @@ The difference between this project and jitangupta/bootstrap5-diaalog is that ji
 ================
 
 ## Upcoming Change
-- Making it compatible to bootstrap 5.3.8
 - Able to change modal shadow based on bootstrap featured shadow sizes
+- Modal templates
 - New unseen features
 
 ================
